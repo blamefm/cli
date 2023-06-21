@@ -2,3 +2,4 @@
 *.wav
 *.txt
 .api-key
+.DS_Store
