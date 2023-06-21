@@ -40,7 +40,7 @@ if not os.path.isfile(final_audio_file):
   final_audio = audio.append(outro, crossfade=crossfade_duration)
 
   # Export the final audio
-  final_audio.export(final_audio_file, format="mp3")
+  final_audio.export(final_audio_file, format="mp3", bitrate="320k")
 else:
   final_audio = AudioSegment.from_mp3(final_audio_file)
 
