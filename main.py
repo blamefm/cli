@@ -30,7 +30,7 @@ if not os.path.isfile(final_audio_file):
   outro = AudioSegment.from_mp3("melody.mp3")[:14000]
 
   # Crossfade duration in milliseconds
-  crossfade_duration = 11 * 1000  # 10 seconds
+  crossfade_duration = 11 * 1000  # 11 seconds
 
   # Combine intro and main audio with crossfade
   silence_5_seconds = AudioSegment.silent(duration=5000)
@@ -40,7 +40,7 @@ if not os.path.isfile(final_audio_file):
   final_audio = audio.append(outro, crossfade=crossfade_duration)
 
   # Export the final audio
-  final_audio.export(final_audio_file, format="mp3", bitrate="320k")
+  final_audio.export(final_audio_file, format="mp3")
 else:
   final_audio = AudioSegment.from_mp3(final_audio_file)
 
@@ -55,7 +55,7 @@ if os.path.isfile(transcript_file):
         transcript = f.read()
 else:
     # Transcribe the audio file
-    model = whisper.load_model("tiny")
+    model = whisper.load_model("medium")
     result = model.transcribe(final_audio_file, language="German")
     transcript = result["text"]
     # Speichere das Transkript im Cache
