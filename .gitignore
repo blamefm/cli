@@ -3,3 +3,5 @@
 *.txt
 .api-key
 .DS_Store
+!static/theme.mp3
+__pycache__
